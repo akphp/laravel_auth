@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -50,7 +50,7 @@ class AuthController extends Controller
         // login to user account admin (table == admin)
         $credentials = $request->only('username', 'password');
         if($this->guard()->attempt($credentials)){ 
-            $user = Auth::user(); 
+            $user = $this->guard()->user(); 
             $success['token'] =  $user->createToken('MyApp')->accessToken; 
             return response()->json(['success' => $success], 200); 
         } 
