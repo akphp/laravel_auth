@@ -45,6 +45,7 @@ class AuthController extends Controller
 
        public function login_user(Request $request)
        { 
+           // login to user account user (table == users)
         $credentials = $request->only('username', 'password');
         if($this->guard()->attempt($credentials)){ 
             $user = Auth::user(); 
@@ -58,6 +59,7 @@ class AuthController extends Controller
 
     public function profile()
     {
+        // profile user account 
         return response()->json(['data'=> $this->guard()->user() ], 200); 
     }
 

@@ -20,7 +20,10 @@ use Illuminate\Http\Request;
 
 
 Route::group(['prefix' => 'auth'], function () {
-
+     
+     /*
+    User Route 
+     */
     Route::post('login', 'User\AuthController@login_user');
     Route::post('register', 'User\AuthController@register');
     // ------------------------------------------------------
@@ -30,7 +33,9 @@ Route::group(['prefix' => 'auth'], function () {
         Route::post('profile-user', 'User\AuthController@profile');
     });
    
-
+     /*
+    Admin Route 
+     */
     Route::post('admin/login', 'Admin\AuthController@login_admin');
     Route::post('admin/register', 'Admin\AuthController@register');
      // auth:gurard   gurard = admin , users , ..............

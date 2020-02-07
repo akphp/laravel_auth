@@ -36,6 +36,14 @@ return [
     */
 
     'guards' => [
+        /*
+        guards
+        make multe gurads  [admin , users , student , dealer  , Customer]
+
+         Each guards
+         It has to be him  provider
+
+         */
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -55,14 +63,6 @@ return [
 
         ],
 
-        /*
-        guards
-        make multe gurads  [admin , users , student , dealer  , Customer]
-
-         Each guards
-         It has to be him  provider
-
-         */
 
         
     ],
@@ -85,24 +85,24 @@ return [
     */
 
     'providers' => [
+        /*
+        guards
+        make multe providers  [admin , users , student , dealer  , Customer]
+         */
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
         
 
-        /*
-        guards
-        make multe providers  [admin , users , student , dealer  , Customer]
-         */
 
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
+            'table' => 'admins',
         ],
 
         
-
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

@@ -46,6 +46,8 @@ class AuthController extends Controller
 
        public function login_admin(Request $request)
        { 
+
+        // login to user account admin (table == admin)
         $credentials = $request->only('username', 'password');
         if($this->guard()->attempt($credentials)){ 
             $user = Auth::user(); 
@@ -60,6 +62,7 @@ class AuthController extends Controller
 
     public function profile()
     {
+        // profile account admin 
         return response()->json(['data'=> $this->guard()->user() ], 200); 
     }
 
